@@ -1,0 +1,327 @@
+:root {
+    --fnb-teal: #009B9F;
+    --fnb-orange: #F47B20;
+    --bg-gray: #F4F7F9;
+    --card-bg: #FFFFFF;
+    --text-primary: #333333;
+    --text-secondary: #777777;
+    --border-color: #EEEEEE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.mobile-container {
+    width: 100%;
+    background-color: var(--bg-gray);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Desktop Preview Frame */
+@media (min-width: 500px) {
+    .mobile-container {
+        max-width: 414px;
+        height: 896px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        border-radius: 40px;
+        border: 12px solid #333;
+        overflow-y: auto;
+    }
+    
+    .mobile-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .bottom-nav {
+        position: absolute !important;
+    }
+}
+
+/* Real Mobile Screen Styling */
+@media (max-width: 499px) {
+    .mobile-container {
+        min-height: 100vh;
+    }
+    
+    .bottom-nav {
+        position: fixed !important;
+    }
+    
+    body {
+        background-color: var(--bg-gray);
+    }
+}
+
+/* Status Bar */
+.status-bar {
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: white;
+}
+
+.status-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.battery {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Header */
+header {
+    background: white;
+    padding: 8px 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.header-actions button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 180px;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('banner.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 24px;
+}
+
+.hero-content h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* Action Card */
+.action-card {
+    background: white;
+    margin: -32px 16px 20px;
+    border-radius: 12px;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 10;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.icon-circle {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.action-item span {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 0 16px 80px;
+}
+
+.add-account {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.plus-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--fnb-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fnb-orange);
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.add-account span {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+/* Account Groups */
+.account-group {
+    margin-top: 24px;
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.group-title {
+    color: var(--fnb-teal);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.group-total {
+    color: var(--fnb-teal);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Account Card */
+.account-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.account-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.account-balances {
+    text-align: right;
+}
+
+.balance-row {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.balance-row .label {
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+.balance-row .value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.balance-row.secondary {
+    margin-top: 4px;
+}
+
+.balance-row.secondary .label,
+.balance-row.secondary .value {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding: 0 10px 10px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-primary);
+}
+
+.nav-item svg {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-item span {
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    color: var(--text-primary);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 3px;
+    background: var(--text-primary);
+}
